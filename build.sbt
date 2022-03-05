@@ -14,6 +14,7 @@ libraryDependencies += "com.softwaremill.sttp.client3" %% "async-http-client-bac
 libraryDependencies += "com.softwaremill.sttp.client3" %% "circe" % "3.3.9"
 libraryDependencies += "tf.tofu" %% "derevo-core" % "0.12.6"
 libraryDependencies += "tf.tofu" %% "derevo-circe" % "0.12.6"
+libraryDependencies += "io.github.humbleui" % "skija-linux" % "0.100.0"
 
 enablePlugins(JavaAppPackaging)
 enablePlugins(JDebPackaging)

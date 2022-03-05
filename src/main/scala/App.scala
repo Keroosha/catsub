@@ -14,8 +14,8 @@ object App extends IOApp {
   val ornulDelay: JavaDuration = JavaDuration.ofMinutes(30)
 
   def mkFn(implicit b: SttpBackend[IO, Any]): Resource[IO, BotFunction] =
-    (sedFunction.resource, tyanochkuFunction.resource, ornulFunction.resource(ornulRate, ornulDelay))
-      .mapN { (sed, tyan, ornul) => sed ++ tyan ++ ornul }
+    (sedFunction.resource, tyanochkuFunction.resource, ornulFunction.resource(ornulRate, ornulDelay), insertTextFunction.resource())
+      .mapN { (sed, tyan, ornul, insertText) => sed ++ tyan ++ ornul ++ insertText }
 
   def loop(offsetRef: Ref[IO, Long], fn: BotFunction)(implicit b: SttpBackend[IO, Any]): IO[Unit] =
     for {
